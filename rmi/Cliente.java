@@ -78,13 +78,13 @@ public class Cliente {
 
     // Calcula el checksum
     static float checksum(float[][] m) {
-        int s = 0;
+        float s = 0.0f;
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[0].length; j++) {
                 s += m[i][j];
             }
         }
-        return s;
+        return (float)s;
     }
 
     static void acomoda_matriz(float[][] c2, float[][] c1, int renglon, int columna, int N) {
