@@ -33,10 +33,10 @@ public class Cliente {
         B = transpuesta(B, N, N);
 
         // SEPARA LAS MATRICES
-        float[][] A1 = r.separa_matriz(A, 0, N);
-        float[][] A2 = r.separa_matriz(A, N / 2, N);
-        float[][] B1 = r.separa_matriz(B, 0, N);
-        float[][] B2 = r.separa_matriz(B, N / 2, N);
+        float[][] A1 = separa_matriz(A, 0, N);
+        float[][] A2 = separa_matriz(A, N / 2, N);
+        float[][] B1 = separa_matriz(B, 0, N);
+        float[][] B2 = separa_matriz(B, N / 2, N);
         // r.imprimir_matriz(B1, "B1");
 
         // INVOCA EL MÉTODO REMOTO multiplica_matrices()
@@ -93,6 +93,19 @@ public class Cliente {
                 c2[i + renglon][j + columna] = c1[i][j];
             }
         }
+    }
+
+    // Separa las matrices en A1,A2,B1,B2,... según se requiera
+    public static float[][] separa_matriz(float[][] A, int inicio, int N) {
+        float[][] M = new float[N / 2][N];
+
+        for (int i = 0; i < N / 2; i++) {
+            for (int j = 0; j < N; j++) {
+                M[i][j] = A[i + inicio][j];
+            }
+        }
+
+        return M;
     }
 
     // TRANSPONE UNA MATRIZ
